@@ -2,15 +2,15 @@
 toc: true
 comments: false
 layout: post
-title: New ML
-description: Example Blog!!!  This shows planning and notes from hacks.
+title: Salary Estimater
+description: Salary estimater
 type: plans
 courses: { compsci: {week: 0} }
 ---
 
 <body>
     <h1>Pay</h1>
-    <form id="Pay">
+    <form id="payForm">
         <div class="form-group">
             <label for="_title">Job Title:</label>
             <input type="text" id="_title" name="_title" class="form-control" required>
@@ -23,14 +23,14 @@ courses: { compsci: {week: 0} }
             <label for="_qualification">Qualification:</label>
             <input type="text" id="_qualification" name="_qualification" class="form-control" required>
         </div>
-        <button type="button" class="btn btn-primary" onclick="predictSurvival()">Predict Survival</button>
+        <button type="button" class="btn btn-primary" onclick="salary_estimate()">Predict Salary</button>
     </form>
     <div id="result"></div>
     <script>
-        function predictSurvival() {
-            var form = document.getElementById('titanicForm');
+        function salary_estimate() {
+            var form = document.getElementById('payForm');
             var formData = new FormData(form);
-            fetch('http://127.0.0.1:8082/api/titanic/predict', {
+            fetch('http://127.0.0.1:8082/api/salary_estimate/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ courses: { compsci: {week: 0} }
             .then(response => response.json())
             .then(data => {
                 var resultDiv = document.getElementById('result');
-                resultDiv.innerHTML = '<h2>Prediction Result</h2>';
+                resultDiv.innerHTML = '<h2>Salary Estimate</h2>';
                 for (var key in data) {
                     resultDiv.innerHTML += '<p>' + key + ': ' + data[key] + '</p>';
                 }
@@ -52,4 +52,3 @@ courses: { compsci: {week: 0} }
         }
     </script>
 </body>
-
