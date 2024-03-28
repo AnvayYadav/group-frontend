@@ -20,7 +20,7 @@ courses: { compsci: {week: 0} }
             <input type="text" id="_field" name="_field" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="_qualification">Qualification:</label>
+            <label for="_qualification">Qualification</label>
             <input type="text" id="_qualification" name="_qualification" class="form-control" required>
         </div>
         <button type="button" class="btn btn-primary" onclick="salary_estimate()">Predict Salary</button>
